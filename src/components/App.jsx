@@ -58,6 +58,10 @@ export class App extends Component {
     this.setState({ filter: value });
   };
 
+  componentDidUpdate() {
+    localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+  }
+
   render() {
     const { contacts, filter } = this.state;
     const filteredContacts = contacts.filter(({ name }) =>
