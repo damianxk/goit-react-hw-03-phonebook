@@ -60,6 +60,9 @@ export class App extends Component {
 
   componentDidUpdate() {
     localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    if (this.state.contacts.length < 1) {
+      localStorage.clear();
+    }
   }
 
   render() {
